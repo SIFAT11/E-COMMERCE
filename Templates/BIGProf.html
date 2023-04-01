@@ -1,0 +1,90 @@
+{%extends 'home.html'%}
+{% load static %}
+{%block title%} BIGProfile {%endblock%}
+{%block content%}
+<div class="container">
+    <br>
+    <br>
+    <div class="main-body">
+        <!-- /Breadcrumb -->
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body" style="background-color: bisque;">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="" class="rounded-circle" width="150" height="170">
+                            <div class="mt-3">
+                                <h4>{{Prof.First_Name}} {{Prof.Last_Name}}</h4>
+                                <p class="text-secondary mb-1">{{Prof.E_mail}}</p>
+                                <p class="text-muted font-size-sm">{{Prof.Address}}</p>
+                                <a href="">
+                                    <button class="btn btn-primary">Update</button>
+                                </a>
+                                <a href="">
+                                    <button class="btn btn-outline-primary">Delete</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Full Name:</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <!--{{Prof.First_Name}} {{Prof.Last_Name}}-->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <!--={{Prof.E_mail}}-->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0"> Phon_number </h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <!--{{Prof.Phon_number}}-->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Age</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{Prof.Age}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{Prof.Address}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-info " target="__blank" href="">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
