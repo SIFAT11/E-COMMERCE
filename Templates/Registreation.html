@@ -1,0 +1,169 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block title %} Registreation {% endblock %}
+{% block content%}
+<main class="main">
+    <section class="pt-60 pb-60">
+        <div class="container" style=" margin: 0px 0px 0px 600px;">
+            <div class="col-lg-6">
+                <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+                    <div class="padding_eight_all bg-white">
+                        <div class="heading_s1">
+                            <h3 class="mb-30">Create an Account</h3>
+                        </div>
+                        <p class="mb-50 font-sm">
+                            Your personal data will be used to support your experience throughout this website, to
+                            manage access to your account, and for other purposes described in our privacy policy
+                        </p>
+                        <form method="POST">
+                            {%if messages %}   <!--use to message pass everyfiled-->
+                            {% for massage in messages %}
+                            <ul>
+                                <li style="color: red;">
+                                    {{massage}}
+                                </li>
+                            </ul>
+                            {%endfor%}
+                            {%endif%}
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" required="" name="name" placeholder="Username*">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required="" name="first_name" placeholder="First_Name *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required="" name="last_name" placeholder="Last_Name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" required="" name="address" placeholder="Address *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required="" name="address_line2" placeholder="Address *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required="" name="city_town" placeholder="city/Town *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required name="age" placeholder="Age">
+                            </div>
+                              
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <select id="gender" name="gender" required onchange="updateGender()">
+                                    <option value="">Please select a gender</option>
+                                    <option value="other">Other</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                  </select>
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-angle-down"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <style>
+                                .input-group {
+                                  position: relative;
+                                  display: flex;
+                                  flex-wrap: wrap;
+                                  align-items: stretch;
+                                  width: 100%;
+                                  height: 50px;
+                                  margin-bottom: 10px;
+                                }
+                              
+                                .input-group select {
+                                  flex: 1;
+                                  padding: 0 10px;
+                                  font-size: 16px;
+                                  border: 1px solid #ccc;
+                                  border-radius: 5px;
+                                  appearance: none;
+                                  -moz-appearance: none;
+                                  -webkit-appearance: none;
+                                  background-color: #fff;
+                                  color: #555;
+                                }
+                              
+                                .input-group-addon {
+                                  position: absolute;
+                                  right: 0;
+                                  top: 0;
+                                  height: 50px;
+                                  padding: 15px;
+                                  pointer-events: none;
+                                  color: #777;
+                                }
+                              
+                                .input-group:hover .input-group-addon {
+                                  color: #555;
+                                }
+                              </style>
+                              
+                              <script>
+                                function updateGender() {
+                                  var genderSelect = document.getElementById("gender");
+                                  var genderText = document.getElementById("gender-text");
+                                  genderText.value = genderSelect.options[genderSelect.selectedIndex].text;
+                                }
+                              </script>                        
+                            <div class="form-group">
+                                <input type="text" required="" name="postcode_zip" placeholder="postcode/zip *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required  name="nid_number" placeholder="NID_Number *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required=""  name="phone_number" placeholder="Phone *">
+                            </div>
+                           
+                            <div class="form-group">
+                                <input type="text" required="" name="additional_information" placeholder="Order note *">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" required="" name="email" placeholder="email">
+                            </div>
+
+                            <div class="form-group">
+                                <input required="" type="password" name="password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group">
+                                <input required="" type="password" name="password1" placeholder="Confirm password">
+                            </div>
+                            <div class="login_footer form-group">
+                                <a href=""><i class="fi-rs-book-alt mr-5 text-muted"></i>Lean more</a>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-fill-out btn-block hover-up">Submit &amp;
+                                    Register
+                                </button>
+                            </div>
+                        </form>
+                        <div class="divider-text-center mt-15 mb-15">
+                            <span> or</span>
+                        </div>
+                        <ul class="btn-login list_none text-center mb-15">
+                            <li><a href="#" class="btn btn-facebook hover-up mb-lg-0 mb-sm-4">Login With Facebook</a>
+                            </li>
+                            <li><a href="#" class="btn btn-google hover-up">Login With Google</a></li>
+                        </ul>
+                        <div class="text-muted text-center">Already have an account? <a href="{% url 'login' %}">Sign in
+                            now</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
